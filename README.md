@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + shadcn/ui Starter Kit
 
-## Getting Started
+Next.js 15, Tailwind CSS v4, shadcn/ui가 미리 설정된 스타터 킷입니다.
 
-First, run the development server:
+## 기술 스택
+
+| 기술 | 버전 | 설명 |
+|------|------|------|
+| Next.js | 15 | App Router, Server Components |
+| React | 19 | 최신 React |
+| TypeScript | 5 | 타입 안전성 |
+| Tailwind CSS | v4 | 유틸리티 CSS |
+| shadcn/ui | 최신 | UI 컴포넌트 라이브러리 |
+| next-themes | - | 다크모드 지원 |
+| lucide-react | - | 아이콘 라이브러리 |
+
+## 시작하기
 
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 프로덕션 빌드
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+개발 서버: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 프로젝트 구조
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── layout.tsx          # 루트 레이아웃 (헤더, 푸터 포함)
+│   ├── page.tsx            # 홈 페이지
+│   ├── dashboard/
+│   │   └── page.tsx        # 대시보드 예제 페이지
+│   └── components/
+│       └── page.tsx        # 컴포넌트 쇼케이스 페이지
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx      # 헤더 (네비게이션, 다크모드 토글)
+│   │   └── Footer.tsx      # 푸터
+│   ├── providers/
+│   │   └── ThemeProvider.tsx  # 다크모드 프로바이더
+│   └── ui/                 # shadcn/ui 컴포넌트
+└── lib/
+    └── utils.ts            # 유틸리티 함수 (cn)
+```
 
-## Learn More
+## 포함된 shadcn/ui 컴포넌트
 
-To learn more about Next.js, take a look at the following resources:
+- Button
+- Card
+- Input
+- Label
+- Badge
+- Avatar
+- DropdownMenu
+- NavigationMenu
+- Sheet
+- Separator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## shadcn/ui 컴포넌트 추가
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx shadcn@latest add [컴포넌트명]
 
-## Deploy on Vercel
+# 예시
+npx shadcn@latest add dialog
+npx shadcn@latest add table
+npx shadcn@latest add form
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 기능
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 다크모드 지원 (시스템 설정 자동 감지)
+- 반응형 레이아웃
+- 모바일 사이드 메뉴 (Sheet 컴포넌트)
+- TypeScript 완전 지원
+- `any` 타입 없는 타입 안전 코드
